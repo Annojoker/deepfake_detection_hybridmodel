@@ -1,0 +1,1 @@
+pip install fastapi uvicorn tensorflow torch torchvision transformers opencv-python numpy
