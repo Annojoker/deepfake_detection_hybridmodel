@@ -1,3 +1,6 @@
 # ignore real and fake folders
 real/
 fake/
+# ignore the real_processed and fake_processed folders
+real_processed/
+fake_processed/
