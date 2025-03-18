@@ -15,3 +15,14 @@ vit_model/
 # ignore the real_features and fake_features folders
 real_features/
 fake_features/
+
+# ignore the real_xception and fake_xception folders
+real_xception/
+fake_xception/
+
+# ignore the real_vit and fake_vit folders
+real_vit/
+fake_vit/
+
+# ignore the extracted_features folder
+extracted_features/
