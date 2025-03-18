@@ -11,3 +11,7 @@ fake_vit/
 
 # ignore the vit_model folder
 vit_model/
+
+# ignore the real_features and fake_features folders
+real_features/
+fake_features/
