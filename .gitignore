@@ -8,3 +8,6 @@ fake_processed/
 # ignore the real_vit and fake_vit folders
 real_vit/
 fake_vit/
+
+# ignore the vit_model folder
+vit_model/
