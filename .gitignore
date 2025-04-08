@@ -23,3 +23,9 @@ fake_vit/
 
 # ignore the extracted_features folder
 extracted_features/
+
+# ignore the dataset folder
+Fakem/
+Realm/
+train/
+val/
