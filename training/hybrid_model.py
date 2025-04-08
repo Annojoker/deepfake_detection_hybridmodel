@@ -59,8 +59,11 @@ xception_input = Input(shape=(224, 224, 3), name="xception_input")
 
 # ViT branch
 def extract_vit_features(images):
+    print("Image shape before ViT model:", images.shape)
+    images = tf.transpose(images, perm=[0, 3, 1, 2])  # 👈 FIXED SHAPE
     vit_features = vit_model(images).last_hidden_state[:, 0]
     return vit_features
+
 
 vit_output = Lambda(extract_vit_features, output_shape=(768,))(vit_input)
 vit_output = BatchNormalization()(vit_output)
