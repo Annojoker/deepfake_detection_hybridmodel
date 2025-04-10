@@ -29,3 +29,6 @@ Fakem/
 Realm/
 train/
 val/
+
+# ignore the __pycache__ folders
+__pycache__/
