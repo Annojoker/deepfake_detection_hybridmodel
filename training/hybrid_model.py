@@ -32,9 +32,10 @@ def preprocess_image(file_path, label):
     return {"vit_input": vit_input, "xception_input": xception_input}, label
 
 # Dataset loader
-def build_dataset(directory):
+def build_dataset(directory, name=""):
     class_names = sorted(os.listdir(directory))
     class_to_index = {name: idx for idx, name in enumerate(class_names)}
+    print(f"Class to index mapping for {name} set:", class_to_index)
 
     image_paths, labels = [], []
     for class_name in class_names:
@@ -49,9 +50,10 @@ def build_dataset(directory):
     ds = ds.shuffle(100).batch(batch_size).prefetch(tf.data.AUTOTUNE)
     return ds
 
-# Load datasets
-train_ds = build_dataset(train_dir)
-val_ds = build_dataset(val_dir)
+
+# Load datasets with class mapping print
+train_ds = build_dataset(train_dir, name="training")
+val_ds = build_dataset(val_dir, name="validation")
 
 # Inputs
 vit_input = Input(shape=(224, 224, 3), name="vit_input")
@@ -59,7 +61,6 @@ xception_input = Input(shape=(224, 224, 3), name="xception_input")
 
 # ViT branch
 def extract_vit_features(images):
-    print("Image shape before ViT model:", images.shape)
     images = tf.transpose(images, perm=[0, 3, 1, 2])  # 👈 FIXED SHAPE
     vit_features = vit_model(images).last_hidden_state[:, 0]
     return vit_features
