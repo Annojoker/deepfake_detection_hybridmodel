@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c3e3e, #606c88);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Main layout */
+.app {
+  text-align: center;
+  background: #ffffffcc;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Upload */
+.upload-section {
+  margin-bottom: 20px;
+}
+
+.upload-btn {
+  background-color: #2196f3;
   color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-btn:hover {
+  background-color: #1976d2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.filename {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Detect Button */
+.detect-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.detect-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Result Card */
+.result-card {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result-card.real {
+  background-color: #4caf50;
+}
+
+.result-card.fake {
+  background-color: #f44336;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .detect-btn,
+  .upload-btn {
+    width: 100%;
   }
 }
